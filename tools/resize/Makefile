@@ -1,7 +1,7 @@
 PROGRAM=./out/resize
 OBJS=out/resize.o
-LIBS=`GraphicsMagick-config --ldflags --libs`
-EXTRA_CFLAGS=`GraphicsMagick-config --cppflags`
+LIBS=`Magick-config --ldflags --libs`
+EXTRA_CFLAGS=`Magick-config --cppflags`
 
 include ../../shared/tools.mk
 

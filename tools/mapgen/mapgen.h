@@ -9,7 +9,7 @@
 #include <getopt.h>
 #include <libgen.h>
 
-#include <tmx.h>
+#include "tmx.h"
 #include "utils.h"
 #include "file.h"
 

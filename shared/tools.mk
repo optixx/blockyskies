@@ -1,6 +1,8 @@
 WARN_ERROR=-Werror
-HOST_WARNINGS=$(WARN_ERROR) -pedantic-errors -Wfatal-errors -Wall  -Wextra -Wno-unused-parameter -Wshadow -limagequant
-HOST_CFLAGS=$(HOST_WARNINGS) -O3 $(EXTRA_CFLAGS)
+HOST_WARNINGS=$(WARN_ERROR) -pedantic-errors -Wfatal-errors -Wall  -Wextra -Wno-unused-parameter -Wshadow -Wno-missing-field-initializers -Wno-absolute-value -Wno-pedantic -Wno-deprecated-declarations -DMAGICKCORE_QUANTUM_DEPTH=16  -DMAGICKCORE_HDRI_ENABLE=0 
+HOST_CFLAGS=$(HOST_WARNINGS) -O3 $(EXTRA_CFLAGS) -I/usr/local/Cellar/libpng/1.6.21/include -I../ -I../pngquant/lib/ -I/usr/local/Cellar/imagemagick/6.9.3-0_2/include/ImageMagick-6 
+
+LDFLAGS=$(HOST_WARNINGS) -O3 $(EXTRA_CFLAGS) -L../pngquant/lib/ -limagequant
 
 $(PROGRAM): out bin $(OBJS) 
 	gcc $(OBJS) -o $(PROGRAM) $(LIBS)
